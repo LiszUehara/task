@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { FiUser, FiLogOut, FiLoader, FiLock } from 'react-icons/fi'
 import { signIn, signOut, useSession } from 'next-auth/react'
 
+
 export function Header() {
   const { status, data } = useSession();
 
@@ -20,7 +21,7 @@ export function Header() {
       <div className="w-full flex items-center justify-between max-w-7xl mx-auto">
         <Link href="/">
           <h1 className="font-bold text-2xl pl-1 hover:tracking-widest duration-300">
-            <span className="text-blue-500">TASK</span>PRO
+            <span className="text-blue-900">TASK</span><span className="text-gray-400">PRO</span>
           </h1>
         </Link>
 
@@ -39,8 +40,9 @@ export function Header() {
 
         {status === "authenticated" && (
           <div className="flex items-baseline gap-4">
-            <Link href="/coordenacao">
-              <FiUser size={26} color="#4b5563" />
+            <Link href="/coordenacao" >
+              <FiUser size={26} color="#4b5563" 
+              /> 
             </Link>
 
             <button onClick={handleLogout}>
