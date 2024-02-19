@@ -42,7 +42,8 @@ export function NewFuncionarioForm({userId}: {userId: string} ) {
 
     console.log(response.data);
 
-    router.replace("/coordenacao/funcionarios")
+    router.refresh();
+    router.replace("/coordenacao/funcionarios");
 
   }
 

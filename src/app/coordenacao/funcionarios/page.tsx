@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { CardCustomer } from './components/card'
+import  PrismaClient  from '@/lib/prisma'
 
 export default async function Funcionarios() {
   const session = await getServerSession(authOptions)
@@ -11,6 +12,14 @@ export default async function Funcionarios() {
   if (!session || !session.user) {
     redirect("/")
   }
+
+  const funcionarios = await PrismaClient.customer.findMany({
+    where:{
+      userId: session.user.id
+    }
+  })
+
+  console.log(funcionarios);
 
 
   return (
@@ -24,9 +33,14 @@ export default async function Funcionarios() {
     </div>
 
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
-      <CardCustomer/>
-      <CardCustomer/>
-      <CardCustomer/>
+     {funcionarios.map( funcionarios => (
+      <CardCustomer 
+      key={funcionarios.id}
+      funcionario={funcionarios}/>
+     ))}
+     
+     
+
     </section>
 
 
