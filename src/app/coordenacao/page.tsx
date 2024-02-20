@@ -25,8 +25,7 @@ export default async function Coordenacao(){
     })
 
 
-    console.log(tickets);
-
+   
     return (
        <Container>
         <main className="mt-9 mb-2">
