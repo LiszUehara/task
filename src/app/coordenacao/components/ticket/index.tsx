@@ -46,6 +46,9 @@ export function TicketItem({ customer, ticket }: TicketItemProps) {
         <td className="text-left pl-1">
           {customer?.name}
         </td>
+        <td className="text-left pl-1">
+          {ticket?.name}
+        </td>
         <td className="text-left hidden sm:table-cell">
           {ticket.created_at?.toLocaleDateString("pt-br")}
         </td>

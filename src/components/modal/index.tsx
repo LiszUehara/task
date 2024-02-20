@@ -35,6 +35,7 @@ export function ModalTicket() {
             <p>{ticket?.ticket.description}</p>
           </div>
 
+
           <div className="flex flex-wrap flex-col gap-1 mb-2">
             <h2 className="font-bold text-blue-900">Prioridade:</h2>
             <p>{ticket?.ticket.priority}</p>

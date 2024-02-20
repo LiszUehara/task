@@ -30,7 +30,7 @@ export default async function Coordenacao(){
        <Container>
         <main className="mt-9 mb-2">
             <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold text-blue-900 ">Chamados</h1>
+            <h1 className="text-3xl font-bold text-blue-900 ">Tickets</h1>
             <Link href="/coordenacao/new" className="bg-blue-900 px-4 py-1 rounded text-white">
                 Atualizar Chamados
             </Link>
@@ -39,7 +39,8 @@ export default async function Coordenacao(){
             <table className="min-w-full my-2">
           <thead>
             <tr>
-              <th className="font-medium text-left pl-1 text-blue-900">CLIENTE</th>
+              <th className="font-medium text-left pl-1 text-blue-900">ATENDENTE</th>
+              <th className="font-medium text-left pl-1 text-blue-900">PROTOCOLO</th>
               <th className="font-medium text-left text-blue-900">DATA CADASTRO</th>
               <th className="font-medium text-left text-blue-900">STATUS</th>
               <th className="font-medium text-left text-blue-900">#</th>
