@@ -35,6 +35,11 @@ export function ModalTicket() {
             <p>{ticket?.ticket.description}</p>
           </div>
 
+          <div className="flex flex-wrap flex-col gap-1 mb-2">
+            <h2 className="font-bold text-blue-900">Prioridade:</h2>
+            <p>{ticket?.ticket.priority}</p>
+          </div>
+
           <div className="w-full border-b-[1.5px] my-4 text-blue-900"></div>
           <h1 className="font-bold text-lg mb-4 text-blue-900">Atendente</h1>
 

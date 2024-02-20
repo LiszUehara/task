@@ -3,6 +3,7 @@ export interface TicketProps{
     name: string;
     status: string;
     description: string;
+    priority: string;
     created_at: Date | null;
     updated_at: Date | null;
     customerId: string | null;
