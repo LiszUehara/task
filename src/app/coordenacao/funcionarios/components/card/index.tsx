@@ -1,3 +1,5 @@
+"use client"
+
 import { FuncionarioProps } from "@/app/utils/funcionarios.type"
 
 export function CardCustomer( {funcionario} : { funcionario: FuncionarioProps}) {
@@ -10,9 +12,6 @@ export function CardCustomer( {funcionario} : { funcionario: FuncionarioProps}) 
         <p><a className="font-bold">Setor:</a> {funcionario.cargo}</p>
         <p><a className="font-bold">Telefone:</a> {funcionario.phone}</p>
   
-        <button className="bg-red-500 px-4 rounded text-white mt-2 self-start">
-          Deletar
-        </button>
       </article>
     )
   }

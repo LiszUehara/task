@@ -21,7 +21,7 @@ export function Header() {
       <div className="w-full flex items-center justify-between max-w-7xl mx-auto">
         <Link href="/">
           <h1 className="font-bold text-2xl pl-1 hover:tracking-widest duration-300">
-            <span className="text-blue-900">TASK</span><span className="text-gray-400">PRO</span>
+            <span className="text-blue-900">TASK</span><span className="text-gray-400">SEFIN</span>
           </h1>
         </Link>
 

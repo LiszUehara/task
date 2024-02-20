@@ -7,7 +7,7 @@ import { AuthProvider } from "@/providers/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Task Controller",
+  title: "Task Sefin",
   description: "Sistema de Gerenciamento",
 };
 

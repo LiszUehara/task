@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { redirect } from 'next/navigation';
 import Link from "next/link";
 import { TicketItem } from "./components/ticket";
+import prismaClient from "@/lib/prisma";
 
 export default async function Coordenacao(){
 
@@ -13,15 +14,24 @@ export default async function Coordenacao(){
       redirect("/")
     }
 
+    const tickets = await prismaClient.ticket.findMany({
+      where: {
+        userId: session.user.id,
+        status: "ABERTO"
+      },
+      include: {
+        customer: true,
+      }
+    })
 
-    if(!session || !session.user){
-        redirect("/")
-    }
+
+    console.log(tickets);
+
     return (
        <Container>
         <main className="mt-9 mb-2">
             <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold ">Chamados</h1>
+            <h1 className="text-3xl font-bold text-blue-900 ">Chamados</h1>
             <Link href="/coordenacao/new" className="bg-blue-900 px-4 py-1 rounded text-white">
                 Atualizar Chamados
             </Link>
@@ -30,15 +40,22 @@ export default async function Coordenacao(){
             <table className="min-w-full my-2">
           <thead>
             <tr>
-              <th className="font-medium text-left pl-1">CLIENTE</th>
-              <th className="font-medium text-left">DATA CADASTRO</th>
-              <th className="font-medium text-left">STATUS</th>
-              <th className="font-medium text-left">#</th>
+              <th className="font-medium text-left pl-1 text-blue-900">CLIENTE</th>
+              <th className="font-medium text-left text-blue-900">DATA CADASTRO</th>
+              <th className="font-medium text-left text-blue-900">STATUS</th>
+              <th className="font-medium text-left text-blue-900">#</th>
             </tr>
           </thead>
           <tbody>
 
-          <TicketItem />
+          {tickets.map(ticket => (
+              <TicketItem 
+              key={ticket.id} 
+              customer={ticket.customer}
+              ticket={ticket}
+              />
+          ))}
+          
 
 
           </tbody>
